@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    perspective: 1000px;
+    background-color: #E5E3E3;
+    overflow: hidden;
+}
+
+.card {
+    width: 300px;
+    height: 450px; /* Adjust the height based on your design */
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    position: relative;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.front {
+    background: url('front-image2.png') no-repeat center center;
+    background-size: contain;
+    transform: rotateY(0deg);
+    z-index: 2;
+}
+
+.back {
+    background: url('back-image.png') no-repeat center center;
+    background-size: contain;
+    transform: rotateY(180deg);
+    z-index: 1;
+}
+
+.card:hover {
+    transform: rotateY(180deg);
+}
+
+.fa-heart {
+    color: rgb(193, 39, 45);
+    font-size: 25px;
+    position: absolute;
+    animation:  heartMove linear 1;
+    top: -10vh;
+    z-index: 0;
+}
+
+@keyframes heartMove {
+    0%{
+        transform: translateY(-10vh) ;
+    }
+    100%{
+        transform: translateY(110vh) ;
+    }
+}
